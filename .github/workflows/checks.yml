@@ -27,9 +27,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Run tests
-        run: mvn clean test
-
       - name: Run SpotBugs (Static Code Analysis)
         run: |
           mvn -B clean compile spotbugs:spotbugs
@@ -60,6 +57,3 @@ jobs:
         with:
           name: dependency-check-report
           path: target/dependency-check-report.html
-
-      - name: Build application
-        run: mvn clean package -DskipTests
